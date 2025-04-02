@@ -41,7 +41,7 @@ const Slider = ({ imagens, autoplayTime = 2000, showArrows = true, showDots = tr
     return undefined;
   }, [avancarSlide, isHovering, imagens, autoplayTime]);
 
-  // Manipulação de eventos de toque para swipe em dispositivos móveis
+  // Manipulação de eventos de toque para swipe
   const handleTouchStart = (e) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -62,7 +62,6 @@ const Slider = ({ imagens, autoplayTime = 2000, showArrows = true, showDots = tr
     }
   };
 
-  // Verifica se há imagens
   if (!imagens || imagens.length === 0) {
     return <div className="carousel carousel-empty">Nenhuma imagem disponível</div>;
   }
