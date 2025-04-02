@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import "./Slider.css";
+import styles from "./Slider.module.css";
 
 const Slider = ({ imagens, autoplayTime = 2000, showArrows = true, showDots = true }) => {
   const [indiceAtual, setIndiceAtual] = useState(0);
@@ -63,40 +63,40 @@ const Slider = ({ imagens, autoplayTime = 2000, showArrows = true, showDots = tr
   };
 
   if (!imagens || imagens.length === 0) {
-    return <div className="carousel carousel-empty">Nenhuma imagem disponível</div>;
+    return <div className={`${styles.carousel} ${styles.carouselEmpty}`}>Nenhuma imagem disponível</div>;
   }
 
   return (
     <div 
-      className="carousel"
+      className={styles.carousel}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="carousel-inner">
+      <div className={styles.carouselInner}>
         {imagens.map((imagem, idx) => (
           <div 
             key={idx} 
-            className={`slide-container ${idx === indiceAtual ? "active" : ""}`}
+            className={`${styles.slideContainer} ${idx === indiceAtual ? styles.active : ""}`}
             style={{ transform: `translateX(${(idx - indiceAtual) * 100}%)` }}
           >
             <a 
               href={imagem.link || "#"} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="slide-link"
+              className={styles.slideLink}
               aria-label={imagem.alt || `Slide ${idx + 1}`}
             >
               <img 
                 src={imagem.url} 
                 alt={imagem.alt || `Slide ${idx + 1}`} 
-                className="slide" 
+                className={styles.slide} 
                 loading={idx === 0 ? "eager" : "lazy"}
               />
               {imagem.caption && (
-                <div className="slide-caption">
+                <div className={styles.slideCaption}>
                   <p>{imagem.caption}</p>
                 </div>
               )}
@@ -108,28 +108,28 @@ const Slider = ({ imagens, autoplayTime = 2000, showArrows = true, showDots = tr
       {showArrows && imagens.length > 1 && (
         <>
           <button 
-            className="seta esquerda" 
+            className={`${styles.seta} ${styles.esquerda}`} 
             onClick={voltarSlide}
             aria-label="Slide anterior"
           >
-            <span className="seta-icon">&#10094;</span>
+            <span className={styles.setaIcon}>&#10094;</span>
           </button>
           <button 
-            className="seta direita" 
+            className={`${styles.seta} ${styles.direita}`} 
             onClick={avancarSlide}
             aria-label="Próximo slide"
           >
-            <span className="seta-icon">&#10095;</span>
+            <span className={styles.setaIcon}>&#10095;</span>
           </button>
         </>
       )}
 
       {showDots && imagens.length > 1 && (
-        <div className="indicadores">
+        <div className={styles.indicadores}>
           {imagens.map((_, idx) => (
             <button
               key={idx}
-              className={`indicador ${idx === indiceAtual ? "ativo" : ""}`}
+              className={`${styles.indicador} ${idx === indiceAtual ? styles.ativo : ""}`}
               onClick={() => setIndiceAtual(idx)}
               aria-label={`Ir para slide ${idx + 1}`}
             />

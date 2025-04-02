@@ -1,4 +1,4 @@
-import './App.css';
+import styles from './App.module.css';
 import Slider from './components/Slider';
 
 const arrayImagens = [
@@ -27,13 +27,11 @@ const arrayImagens = [
         alt: 'foto com pouca luz do carro classico',
         link: 'https://unsplash.com/pt-br/fotografias/foto-com-pouca-luz-do-carro-classico-eLUegVAjN7s'
     },
-
-    
 ];
 
 function App() {
   return (
-    <div className="carousel-container">
+    <div className={styles.carouselContainer}>
       <Slider imagens={arrayImagens} />
     </div>
   );
