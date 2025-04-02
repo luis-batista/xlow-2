@@ -1,3 +1,27 @@
+# Desafio Técnico para Processo Seletivo XLOW 2025
+
+### Desafio 2
+
+Este desafio propõe a criação de um Slider de imagens em React que possui rolagem infinita, rolagem automatica e também contenha setas para navegar entre as imagens a esquerda e a direita da imagem atual. Além disso, o Slider também deve conter bolinhas clicáveis para navegar entre as imagens.
+
+# Imagens
+
+As imagens deve ser adicionadas no Slider através de um array de objetos contendo as informações:
+
+- URL
+- ALT
+- LINK
+
+# Preview
+
+<div align="left">
+    <img 
+      alt="Foto de demonstração" 
+      height="400"
+      width="800"
+      src="https://github.com/user-attachments/assets/c0760c8d-e6b7-4c26-912f-bc3fb8ddeab2" 
+    />
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
